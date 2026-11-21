@@ -1,0 +1,60 @@
+# Ionic Card Title
+
+Source: https://ionicframework.com/docs/api/card-title
+
+Sections: Properties · Events · Methods · CSS Shadow Parts · CSS Custom Properties · Slots
+
+[shadow](https://ionicframework.com/docs/reference/glossary#shadow)
+
+Card title is a child component of card that should be placed inside of a [card header](https://ionicframework.com/docs/api/card-header).
+
+See the [Card](https://ionicframework.com/docs/api/card) documentation for more information.
+
+## Properties
+
+### color
+
+|     |     |
+| --- | --- |
+| **Description** | The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](https://ionicframework.com/docs/theming/basics). |
+| **Attribute** | `color` |
+| **Type** | `"danger" ｜ "dark" ｜ "light" ｜ "medium" ｜ "primary" ｜ "secondary" ｜ "success" ｜ "tertiary" ｜ "warning" ｜ string ｜ undefined` |
+| **Default** | `undefined` |
+
+### mode
+
+|     |     |
+| --- | --- |
+| **Description** | The mode determines which platform styles to use.<br>This is a [virtual property](https://ionicframework.com/docs/core-concepts/fundamentals#virtual-properties) that is set once during initialization and will not update if you change its value after the initial render. |
+| **Attribute** | `mode` |
+| **Type** | `"ios" ｜ "md"` |
+| **Default** | `undefined` |
+
+## Events
+
+No events available for this component.
+
+## Methods
+
+No public methods available for this component.
+
+## CSS Shadow Parts
+
+No CSS shadow parts available for this component.
+
+## CSS Custom Properties
+
+- iOS
+- MD
+
+| Name | Description |
+| --- | --- |
+| `--color` | Color of the card title |
+
+| Name | Description |
+| --- | --- |
+| `--color` | Color of the card title |
+
+## Slots
+
+No slots available for this component.

@@ -1,0 +1,508 @@
+# Ionic Header Documentation
+
+Source: https://ionicframework.com/docs/api/header
+
+Sections: Basic Usage · Translucent Header · Condensed Header · Fade Header · Borders · Properties · Events · Methods · CSS Shadow Parts · CSS Custom Properties · Slots
+
+Header is a root component of a page that aligns itself to the top of the page. It is recommended to be used as a wrapper for one or more [toolbars](https://ionicframework.com/docs/api/toolbar), but it can be used to wrap any element. When a toolbar is used inside of a header, the content will be adjusted so it is sized correctly, and the header will account for any device safe areas.
+
+## Basic Usage
+
+- src/app/example.component.html
+- src/app/example.component.ts
+
+```html
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Header</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <h1>Content</h1>
+</ion-content>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+
+@Component({
+  selector: 'app-example',
+  templateUrl: 'example.component.html',
+  styleUrls: ['example.component.css'],
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar],
+})
+export class ExampleComponent {}
+```
+
+## Translucent Header
+
+Headers can match the transparency found in native iOS applications by setting the `translucent` property. In order to see the content scrolling behind the header, the `fullscreen` property needs to be set on the content. This effect will only apply when the mode is `"ios"` and the device supports [backdrop-filter](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter#browser_compatibility).
+
+iOS
+
+MD
+
+- src/app/example.component.html
+- src/app/example.component.ts
+
+```html
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Header</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <h1>Animal Facts</h1>
+
+  <h2>Rhinoceros</h2>
+  <img
+    alt="rhino standing near grass"
+    src="https://images.unsplash.com/flagged/photo-1556983257-71fddc36bc75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+  />
+  <p>
+    The rhinoceros gets its name from one of its most notable features: its horns. The word rhinoceros come from the
+    Greek words rhino meaning “nose” and ceros meaning “horn.” The number of horns that a rhino has varies on the
+    species. The two African species (the black rhino and the white rhino) and the Sumatran rhino have two horns, while
+    the Javan rhino and one-horned rhino have one horn.
+  </p>
+
+  <h2>Sea Turtle</h2>
+  <img
+    alt="brown sea turtle in water"
+    src="https://images.unsplash.com/photo-1573551089778-46a7abc39d9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+  />
+  <p>
+    Sea turtles are characterized by a large, streamlined shell and non-retractile head and limbs. Unlike other turtles,
+    sea turtles cannot pull their limbs and head inside their shells. Their limbs are flippers that are adapted for
+    swimming, so they are vulnerable while on land.
+  </p>
+
+  <h2>Giraffe</h2>
+  <img
+    alt="giraffe sticking its tongue out"
+    src="https://images.unsplash.com/photo-1577114995803-d8ce0e2b4aa9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1746&q=80"
+  />
+  <p>
+    Giraffes are known for their long, tall appearance. They have a small hump on their back like a camel and have a
+    spotted pattern similar to that of a leopard. Because of the combination of these features, some people called the
+    giraffe a “camel-leopard.” That’s where the giraffe’s species name “camelopardalis” comes from.
+  </p>
+
+  <h2>Elephant</h2>
+  <img
+    alt="two grey elephants on grass plains during sunset"
+    src="https://images.unsplash.com/photo-1564760055775-d63b17a55c44?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1754&q=80"
+  />
+  <p>
+    Elephants are the largest existing land animal, with massive bodies, large ears, and long trunks. Elephants’ long
+    trunks are multifunctional. They are used to pick up objects, trumpet warnings, greet other elephants, or suck up
+    water for drinking or bathing.
+  </p>
+
+  <h2>Dolphin</h2>
+  <img
+    alt="black and white dolphin in water"
+    src="https://images.unsplash.com/photo-1607153333879-c174d265f1d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+  />
+  <p>
+    Dolphins range in color depending on the species, from white, pearl, and pink to darker shades of brown, gray, blue,
+    and black. They have smooth skin, flippers, and a dorsal fin. They have a long, slender snout with about 100 teeth
+    and a streamlined body. They have a single blowhole on top of their head, which has a flap that opens to reveal a
+    pair of nostrils. The dolphin uses these nostrils for breathing when it surfaces.
+  </p>
+</ion-content>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+
+@Component({
+  selector: 'app-example',
+  templateUrl: 'example.component.html',
+  styleUrls: ['example.component.css'],
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar],
+})
+export class ExampleComponent {}
+```
+
+## Condensed Header
+
+Ionic provides the functionality found in native iOS applications to show a large toolbar title and then collapse it to a small title when scrolling. This can be done by adding two headers, one above the content and one inside of the content, and then setting the `collapse` property to `"condense"` on the header inside of the content. This effect will only apply when the mode is "ios".
+
+iOS
+
+MD
+
+- src/app/example.component.html
+- src/app/example.component.ts
+
+```html
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Header</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Header</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ion-padding">
+    <h1>Animal Facts</h1>
+
+    <h2>Rhinoceros</h2>
+    <img
+      alt="rhino standing near grass"
+      src="https://images.unsplash.com/flagged/photo-1556983257-71fddc36bc75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+    />
+    <p>
+      The rhinoceros gets its name from one of its most notable features: its horns. The word rhinoceros come from the
+      Greek words rhino meaning “nose” and ceros meaning “horn.” The number of horns that a rhino has varies on the
+      species. The two African species (the black rhino and the white rhino) and the Sumatran rhino have two horns,
+      while the Javan rhino and one-horned rhino have one horn.
+    </p>
+
+    <h2>Sea Turtle</h2>
+    <img
+      alt="brown sea turtle in water"
+      src="https://images.unsplash.com/photo-1573551089778-46a7abc39d9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+    />
+    <p>
+      Sea turtles are characterized by a large, streamlined shell and non-retractile head and limbs. Unlike other
+      turtles, sea turtles cannot pull their limbs and head inside their shells. Their limbs are flippers that are
+      adapted for swimming, so they are vulnerable while on land.
+    </p>
+
+    <h2>Giraffe</h2>
+    <img
+      alt="giraffe sticking its tongue out"
+      src="https://images.unsplash.com/photo-1577114995803-d8ce0e2b4aa9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1746&q=80"
+    />
+    <p>
+      Giraffes are known for their long, tall appearance. They have a small hump on their back like a camel and have a
+      spotted pattern similar to that of a leopard. Because of the combination of these features, some people called the
+      giraffe a “camel-leopard.” That’s where the giraffe’s species name “camelopardalis” comes from.
+    </p>
+
+    <h2>Elephant</h2>
+    <img
+      alt="two grey elephants on grass plains during sunset"
+      src="https://images.unsplash.com/photo-1564760055775-d63b17a55c44?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1754&q=80"
+    />
+    <p>
+      Elephants are the largest existing land animal, with massive bodies, large ears, and long trunks. Elephants’ long
+      trunks are multifunctional. They are used to pick up objects, trumpet warnings, greet other elephants, or suck up
+      water for drinking or bathing.
+    </p>
+
+    <h2>Dolphin</h2>
+    <img
+      alt="black and white dolphin in water"
+      src="https://images.unsplash.com/photo-1607153333879-c174d265f1d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+    />
+    <p>
+      Dolphins range in color depending on the species, from white, pearl, and pink to darker shades of brown, gray,
+      blue, and black. They have smooth skin, flippers, and a dorsal fin. They have a long, slender snout with about 100
+      teeth and a streamlined body. They have a single blowhole on top of their head, which has a flap that opens to
+      reveal a pair of nostrils. The dolphin uses these nostrils for breathing when it surfaces.
+    </p>
+  </div>
+</ion-content>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+
+@Component({
+  selector: 'app-example',
+  templateUrl: 'example.component.html',
+  styleUrls: ['example.component.css'],
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar],
+})
+export class ExampleComponent {}
+```
+
+## Fade Header
+
+Many native iOS applications have a fade effect on the toolbar. This can be achieved by setting the `collapse` property on the header to `"fade"`. When the page is first loaded, the background and border on the header will be hidden. As the content is scrolled, the header will fade back in. This effect will only apply when the mode is "ios".
+
+This functionality can be combined with a [Condensed Header](https://ionicframework.com/docs/api/header#condensed-header) as well. The `collapse` property with a value set to `"fade"` should be on the header outside of the content.
+
+iOS
+
+MD
+
+- src/app/example.component.html
+- src/app/example.component.ts
+
+```html
+<ion-header collapse="fade">
+  <ion-toolbar>
+    <ion-title>Header</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <h1>Animal Facts</h1>
+
+  <h2>Rhinoceros</h2>
+  <img
+    alt="rhino standing near grass"
+    src="https://images.unsplash.com/flagged/photo-1556983257-71fddc36bc75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+  />
+  <p>
+    The rhinoceros gets its name from one of its most notable features: its horns. The word rhinoceros come from the
+    Greek words rhino meaning “nose” and ceros meaning “horn.” The number of horns that a rhino has varies on the
+    species. The two African species (the black rhino and the white rhino) and the Sumatran rhino have two horns, while
+    the Javan rhino and one-horned rhino have one horn.
+  </p>
+
+  <h2>Sea Turtle</h2>
+  <img
+    alt="brown sea turtle in water"
+    src="https://images.unsplash.com/photo-1573551089778-46a7abc39d9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+  />
+  <p>
+    Sea turtles are characterized by a large, streamlined shell and non-retractile head and limbs. Unlike other turtles,
+    sea turtles cannot pull their limbs and head inside their shells. Their limbs are flippers that are adapted for
+    swimming, so they are vulnerable while on land.
+  </p>
+
+  <h2>Giraffe</h2>
+  <img
+    alt="giraffe sticking its tongue out"
+    src="https://images.unsplash.com/photo-1577114995803-d8ce0e2b4aa9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1746&q=80"
+  />
+  <p>
+    Giraffes are known for their long, tall appearance. They have a small hump on their back like a camel and have a
+    spotted pattern similar to that of a leopard. Because of the combination of these features, some people called the
+    giraffe a “camel-leopard.” That’s where the giraffe’s species name “camelopardalis” comes from.
+  </p>
+
+  <h2>Elephant</h2>
+  <img
+    alt="two grey elephants on grass plains during sunset"
+    src="https://images.unsplash.com/photo-1564760055775-d63b17a55c44?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1754&q=80"
+  />
+  <p>
+    Elephants are the largest existing land animal, with massive bodies, large ears, and long trunks. Elephants’ long
+    trunks are multifunctional. They are used to pick up objects, trumpet warnings, greet other elephants, or suck up
+    water for drinking or bathing.
+  </p>
+
+  <h2>Dolphin</h2>
+  <img
+    alt="black and white dolphin in water"
+    src="https://images.unsplash.com/photo-1607153333879-c174d265f1d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+  />
+  <p>
+    Dolphins range in color depending on the species, from white, pearl, and pink to darker shades of brown, gray, blue,
+    and black. They have smooth skin, flippers, and a dorsal fin. They have a long, slender snout with about 100 teeth
+    and a streamlined body. They have a single blowhole on top of their head, which has a flap that opens to reveal a
+    pair of nostrils. The dolphin uses these nostrils for breathing when it surfaces.
+  </p>
+</ion-content>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+
+@Component({
+  selector: 'app-example',
+  templateUrl: 'example.component.html',
+  styleUrls: ['example.component.css'],
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar],
+})
+export class ExampleComponent {}
+```
+
+### Usage with Virtual Scroll
+
+A fade header requires a scroll container to work properly. When using a virtual scrolling solution, a custom scroll target needs to be provided. Scrolling on the content needs to be disabled and the `.ion-content-scroll-host` class needs to be added to the element responsible for scrolling.
+
+iOS
+
+MD
+
+- src/app/example.component.html
+- src/app/example.component.css
+- src/app/example.component.ts
+
+```html
+<ion-header collapse="fade">
+  <ion-toolbar>
+    <ion-title>Header</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [scrollY]="false">
+  <div class="ion-content-scroll-host ion-padding">
+    <h1>Animal Facts</h1>
+
+    <h2>Rhinoceros</h2>
+    <img
+      alt="rhino standing near grass"
+      src="https://images.unsplash.com/flagged/photo-1556983257-71fddc36bc75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+    />
+    <p>
+      The rhinoceros gets its name from one of its most notable features: its horns. The word rhinoceros come from the
+      Greek words rhino meaning “nose” and ceros meaning “horn.” The number of horns that a rhino has varies on the
+      species. The two African species (the black rhino and the white rhino) and the Sumatran rhino have two horns,
+      while the Javan rhino and one-horned rhino have one horn.
+    </p>
+
+    <h2>Sea Turtle</h2>
+    <img
+      alt="brown sea turtle in water"
+      src="https://images.unsplash.com/photo-1573551089778-46a7abc39d9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80"
+    />
+    <p>
+      Sea turtles are characterized by a large, streamlined shell and non-retractile head and limbs. Unlike other
+      turtles, sea turtles cannot pull their limbs and head inside their shells. Their limbs are flippers that are
+      adapted for swimming, so they are vulnerable while on land.
+    </p>
+
+    <h2>Giraffe</h2>
+    <img
+      alt="giraffe sticking its tongue out"
+      src="https://images.unsplash.com/photo-1577114995803-d8ce0e2b4aa9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1746&q=80"
+    />
+    <p>
+      Giraffes are known for their long, tall appearance. They have a small hump on their back like a camel and have a
+      spotted pattern similar to that of a leopard. Because of the combination of these features, some people called the
+      giraffe a “camel-leopard.” That’s where the giraffe’s species name “camelopardalis” comes from.
+    </p>
+
+    <h2>Elephant</h2>
+    <img
+      alt="two grey elephants on grass plains during sunset"
+      src="https://images.unsplash.com/photo-1564760055775-d63b17a55c44?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1754&q=80"
+    />
+    <p>
+      Elephants are the largest existing land animal, with massive bodies, large ears, and long trunks. Elephants’ long
+      trunks are multifunctional. They are used to pick up objects, trumpet warnings, greet other elephants, or suck up
+      water for drinking or bathing.
+    </p>
+
+    <h2>Dolphin</h2>
+    <img
+      alt="black and white dolphin in water"
+      src="https://images.unsplash.com/photo-1607153333879-c174d265f1d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
+    />
+    <p>
+      Dolphins range in color depending on the species, from white, pearl, and pink to darker shades of brown, gray,
+      blue, and black. They have smooth skin, flippers, and a dorsal fin. They have a long, slender snout with about 100
+      teeth and a streamlined body. They have a single blowhole on top of their head, which has a flap that opens to
+      reveal a pair of nostrils. The dolphin uses these nostrils for breathing when it surfaces.
+    </p>
+  </div>
+</ion-content>
+```
+
+```css
+.ion-content-scroll-host {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+```
+
+```ts
+import { Component } from '@angular/core';
+import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+
+@Component({
+  selector: 'app-example',
+  templateUrl: 'example.component.html',
+  styleUrls: ['example.component.css'],
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar],
+})
+export class ExampleComponent {}
+```
+
+## Borders
+
+In `"md"` mode, the header will have a `box-shadow` on the bottom. In `"ios"` mode, it will receive a `border` on the bottom. These can be removed by adding the `.ion-no-border` class to the header.
+
+- src/app/example.component.html
+- src/app/example.component.ts
+
+```html
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Header</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <h1>Content</h1>
+</ion-content>
+```
+
+```ts
+import { Component } from '@angular/core';
+import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+
+@Component({
+  selector: 'app-example',
+  templateUrl: 'example.component.html',
+  styleUrls: ['example.component.css'],
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar],
+})
+export class ExampleComponent {}
+```
+
+## Properties
+
+### collapse
+
+|     |     |
+| --- | --- |
+| **Description** | Describes the scroll effect that will be applied to the header. Only applies in iOS mode.<br>Typically used for [Collapsible Large Titles](https://ionicframework.com/docs/api/title#collapsible-large-titles) |
+| **Attribute** | `collapse` |
+| **Type** | `"condense" ｜ "fade" ｜ undefined` |
+| **Default** | `undefined` |
+
+### mode
+
+|     |     |
+| --- | --- |
+| **Description** | The mode determines which platform styles to use.<br>This is a [virtual property](https://ionicframework.com/docs/core-concepts/fundamentals#virtual-properties) that is set once during initialization and will not update if you change its value after the initial render. |
+| **Attribute** | `mode` |
+| **Type** | `"ios" ｜ "md"` |
+| **Default** | `undefined` |
+
+### translucent
+
+|     |     |
+| --- | --- |
+| **Description** | If `true`, the header will be translucent. Only applies when the mode is `"ios"` and the device supports [`backdrop-filter`](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter#Browser_compatibility).<br>Note: In order to scroll content behind the header, the `fullscreen` attribute needs to be set on the content. |
+| **Attribute** | `translucent` |
+| **Type** | `boolean` |
+| **Default** | `false` |
+
+## Events
+
+No events available for this component.
+
+## Methods
+
+No public methods available for this component.
+
+## CSS Shadow Parts
+
+No CSS shadow parts available for this component.
+
+## CSS Custom Properties
+
+No CSS custom properties available for this component.
+
+## Slots
+
+No slots available for this component.
